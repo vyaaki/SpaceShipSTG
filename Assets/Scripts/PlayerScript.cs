@@ -13,6 +13,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float zMaxBorder;
     [SerializeField] private float tilt;
 
+    [SerializeField] private GameObject lazerShot;
+    [SerializeField] private Transform lazerGun;
+    [SerializeField] private float shotDelay;
+    private float nextShotTime;
+    
     void Start()
     {
         playerShip = GetComponent<Rigidbody>();
@@ -20,8 +25,8 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis(UnityConstants.Axes.Horizontal);
+        float moveVertical = Input.GetAxis(UnityConstants.Axes.Vertical);
         
         playerShip.velocity = new Vector3(moveHorizontal,0,moveVertical)* speed;
 
@@ -32,5 +37,11 @@ public class PlayerScript : MonoBehaviour
 
         var velocity = playerShip.velocity;
         playerShip.rotation = Quaternion.Euler(tilt * velocity.z, 0, -velocity.x * tilt);
+
+        if (Time.time > nextShotTime && Input.GetButton(UnityConstants.Axes.Fire1))
+        {
+            Instantiate(lazerShot, lazerGun.position, Quaternion.identity);
+            nextShotTime = Time.time + shotDelay;
+        }
     }
 }

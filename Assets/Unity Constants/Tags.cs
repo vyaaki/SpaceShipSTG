@@ -29,6 +29,10 @@ namespace UnityConstants {
         
         public const string FxTemporaire = "FxTemporaire";
         
+        public const string Asteroid = "Asteroid";
+        
+        public const string GameBoundary = "GameBoundary";
+        
         private Tags() {
         }
     }

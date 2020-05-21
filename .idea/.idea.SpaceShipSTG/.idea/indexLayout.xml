@@ -3,7 +3,6 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
-      <Path>Assets</Path>
       <Path>Library/PackageCache/com.coffee.upm-git-extension@aa9f6ea799</Path>
       <Path>Library/PackageCache/com.dogfuntom.unityconstantsgenerator@934dbf96e8</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
@@ -21,7 +20,6 @@
       <Path>.idea</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
-      <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
