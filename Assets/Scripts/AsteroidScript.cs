@@ -13,6 +13,7 @@ public class AsteroidScript : MonoBehaviour
 
     [SerializeField] private float minSize;
     [SerializeField] private float maxSize;
+    private float size;
     private void Start()
     {
         Rigidbody asteroid = GetComponent<Rigidbody>();
@@ -20,9 +21,8 @@ public class AsteroidScript : MonoBehaviour
         float speed = Random.Range(minSpeed, maxSpeed);
         asteroid.velocity = new Vector3(0, 0, -20) * speed;
 
-        float size = Random.Range(minSize, maxSize);
+        size = Random.Range(minSize, maxSize);
         asteroid.transform.localScale *= size;
-        asteroidExplosion.transform.localScale *= size;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +31,8 @@ public class AsteroidScript : MonoBehaviour
         {
             return;
         }
-        Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
+        GameObject explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
+        explosion.transform.localScale *= size;
         if (other.CompareTag(UnityConstants.Tags.Player))
         {
             Instantiate(playerExplosion, other.transform.position, Quaternion.identity);
