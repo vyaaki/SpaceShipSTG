@@ -579,6 +579,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &782372618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782372619}
+  m_Layer: 0
+  m_Name: SmallLazerSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782372619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782372618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.7, y: -1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 878763202}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &878763201
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +643,8 @@ Transform:
   - {fileID: 266450830}
   - {fileID: 1563736458}
   - {fileID: 246544889}
+  - {fileID: 1629505011}
+  - {fileID: 782372619}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -636,8 +668,14 @@ MonoBehaviour:
   tilt: 0.5
   lazerShot: {fileID: 1767710790207845114, guid: 0ff4a4848c292994ebe976d235e22514,
     type: 3}
+  smallLazerShot: {fileID: 7344497811338171081, guid: 768c6add6c5a1364bb78b81e0adb2880,
+    type: 3}
   lazerGun: {fileID: 246544889}
+  smallLazers:
+  - {fileID: 1629505011}
+  - {fileID: 782372619}
   shotDelay: 0.5
+  lazerSpeed: 60
 --- !u!54 &878763204
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1031,3 +1069,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 967093078}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1629505010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629505011}
+  m_Layer: 0
+  m_Name: SmallLazerSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1629505011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629505010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.7, y: -1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 878763202}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

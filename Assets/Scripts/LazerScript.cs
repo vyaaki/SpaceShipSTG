@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LazerScript : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public float speed;
     void Start()
     {
         GetComponent<Rigidbody>().velocity= new Vector3(0,  0, speed);
