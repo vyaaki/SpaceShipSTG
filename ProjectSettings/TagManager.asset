@@ -7,6 +7,8 @@ TagManager:
   - FxTemporaire
   - Asteroid
   - GameBoundary
+  - EnemyLazerShoot
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Enemy
+  - Asteroids
   - 
   - 
   - 

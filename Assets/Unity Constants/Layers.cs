@@ -23,6 +23,10 @@ namespace UnityConstants {
         
         public const string UI = "UI";
         
+        public const string Enemy = "Enemy";
+        
+        public const string Asteroids = "Asteroids";
+        
         private Layers() {
         }
     }

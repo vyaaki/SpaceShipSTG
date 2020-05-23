@@ -33,6 +33,12 @@ namespace UnityConstants {
         
         public const string GameBoundary = "GameBoundary";
         
+        public const string EnemyLazerShoot = "EnemyLazerShoot";
+        
+        public const string Enemy = "Enemy";
+        
+        public const string PlayerLazer = "PlayerLazer";
+        
         private Tags() {
         }
     }

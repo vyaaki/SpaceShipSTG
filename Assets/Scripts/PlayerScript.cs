@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float shotDelay;
     
     [SerializeField] float lazerSpeed;
+    [SerializeField] private GameObject playerExplosion;
     private float nextShotTime, smallShotDelay, nextSmallShotTime;
 
     private const int SMALL_LAZER_DIVIDER = 4;
@@ -66,5 +67,11 @@ public class PlayerScript : MonoBehaviour
             nextSmallShotTime = Time.time + smallShotDelay;
             
         }
+    }
+
+    public void DestroyPlayer()
+    {
+        Instantiate(playerExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

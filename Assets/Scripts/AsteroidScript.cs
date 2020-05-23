@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class AsteroidScript : MonoBehaviour
@@ -27,7 +28,7 @@ public class AsteroidScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(UnityConstants.Tags.Asteroid) || other.CompareTag(UnityConstants.Tags.GameBoundary))
+        if (new []{UnityConstants.Tags.Asteroid, UnityConstants.Tags.GameBoundary,UnityConstants.Tags.EnemyLazerShoot, UnityConstants.Tags.Enemy}.Contains(other.tag) )
         {
             return;
         }
@@ -35,9 +36,13 @@ public class AsteroidScript : MonoBehaviour
         explosion.transform.localScale *= size;
         if (other.CompareTag(UnityConstants.Tags.Player))
         {
-            Instantiate(playerExplosion, other.transform.position, Quaternion.identity);
+            PlayerScript player = GameObject.FindObjectOfType<PlayerScript>();
+            player.DestroyPlayer();
         }
         Destroy(gameObject);
-        Destroy(other.gameObject);
+        if (other)
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
