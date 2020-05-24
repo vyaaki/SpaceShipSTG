@@ -25,6 +25,7 @@ public class GameControllerScript : MonoBehaviour
 
     private void Start()
     {
+        Screen.SetResolution(600, 900, FullScreenMode.Windowed);
         Time.timeScale = 0;
         instance = this;
         startButton.onClick.AddListener(delegate
