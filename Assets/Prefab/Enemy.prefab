@@ -107,13 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1b74383a7df1148818fa988570947b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 1
   lazerShoot: {fileID: 1380243368035754538, guid: 1a2ad0f6fc05cc64f971a705a1ee7f6d,
     type: 3}
   lazerSpawner: {fileID: 9085577909979128456}
-  shootSpeed: 20
   shipExplosion: {fileID: 2458269175834369211, guid: 3429e2a41b50654459255757223dc604,
     type: 3}
+  shootDelay: 3
+  shootSpeed: 20
+  enemyShipScore: 30
 --- !u!1001 &9085577909548985677
 PrefabInstance:
   m_ObjectHideFlags: 0

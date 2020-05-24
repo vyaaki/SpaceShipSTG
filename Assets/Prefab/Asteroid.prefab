@@ -71,6 +71,7 @@ MonoBehaviour:
     type: 3}
   minSize: 0.5
   maxSize: 2
+  asteroidScore: 10
 --- !u!135 &8475361030217560607
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ TagManager:
   - GameBoundary
   - EnemyLazerShoot
   - Enemy
+  - PlayerLazer
   layers:
   - Default
   - TransparentFX

@@ -1,25 +1,27 @@
 ﻿using System.Linq;
+using UnityConstants;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class AsteroidScript : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] private GameObject asteroidExplosion;
 
-    [SerializeField] private float minSpeed;
+    [SerializeField] private int asteroidScore;
+    [SerializeField] private float maxSize;
     [SerializeField] private float maxSpeed;
 
-    [SerializeField] private GameObject asteroidExplosion;
-    [SerializeField] private GameObject playerExplosion;
-
     [SerializeField] private float minSize;
-    [SerializeField] private float maxSize;
+
+    [SerializeField] private float minSpeed;
+    [SerializeField] private GameObject playerExplosion;
+    [SerializeField] private float rotationSpeed;
     private float size;
+
     private void Start()
     {
-        Rigidbody asteroid = GetComponent<Rigidbody>();
+        var asteroid = GetComponent<Rigidbody>();
         asteroid.angularVelocity = Random.insideUnitSphere * rotationSpeed;
-        float speed = Random.Range(minSpeed, maxSpeed);
+        var speed = Random.Range(minSpeed, maxSpeed);
         asteroid.velocity = new Vector3(0, 0, -20) * speed;
 
         size = Random.Range(minSize, maxSize);
@@ -28,21 +30,20 @@ public class AsteroidScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (new []{UnityConstants.Tags.Asteroid, UnityConstants.Tags.GameBoundary,UnityConstants.Tags.EnemyLazerShoot, UnityConstants.Tags.Enemy}.Contains(other.tag) )
-        {
-            return;
-        }
-        GameObject explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
+        if (new[] {Tags.Asteroid, Tags.GameBoundary, Tags.EnemyLazerShoot, Tags.Enemy}.Contains(other.tag)) return;
+        var explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
         explosion.transform.localScale *= size;
-        if (other.CompareTag(UnityConstants.Tags.Player))
+        if (other.CompareTag(Tags.Player))
         {
-            PlayerScript player = GameObject.FindObjectOfType<PlayerScript>();
+            var player = FindObjectOfType<PlayerScript>();
             player.DestroyPlayer();
         }
-        Destroy(gameObject);
-        if (other)
+        else
         {
-            Destroy(other.gameObject);
+            GameControllerScript.instance.IncreaseScore(asteroidScore);
         }
+
+        Destroy(gameObject);
+        if (other) Destroy(other.gameObject);
     }
 }

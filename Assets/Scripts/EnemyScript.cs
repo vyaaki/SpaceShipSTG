@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    [SerializeField] private int enemyShipScore;
     [SerializeField] private GameObject lazerShoot;
     [SerializeField] private Transform lazerSpawner;
     private float nextShootTime;
@@ -41,6 +42,7 @@ public class EnemyScript : MonoBehaviour
         }
         else if (other.CompareTag(Tags.PlayerLazer))
         {
+            GameControllerScript.instance.IncreaseScore(enemyShipScore);
             Destroy(gameObject);
             Instantiate(shipExplosion, gameObject.transform.position, Quaternion.identity);
         }
